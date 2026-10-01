@@ -67,6 +67,17 @@ main {
     border-radius: 20px;
 }
 
+.delete-format {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 4px 10px;
+    border: 1px solid #b34d6d;
+    border-radius: 15px;
+    color: #b34d6d;
+    font-size: 12px;
+    text-decoration: none;
+}
+
 .delete-button {
     display: inline-block;
     background-color: transparent;

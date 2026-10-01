@@ -49,6 +49,8 @@ include_once('header.php');
             <?= $platform['name'] ?> -
             <?= $gamePlatform['copy_type'] ?> -
             $<?= $gamePlatform['price'] ?>
+
+            <a class="delete-format" href="platform-delete.php?game_id=<?= $game['id'] ?>&amp;platform_id=<?= $platform['id'] ?>&amp;copy_type=<?= $gamePlatform['copy_type'] ?>">Delete</a>
         </p>
 
         <?php
@@ -62,6 +64,7 @@ include_once('header.php');
 
 <div class="game-actions">
     <a class="back-button" href="game-index.php">Back to Games</a>
+    <a class="button" href="platform-create.php?id=<?= $game['id'] ?>">Add Platform</a>
     <a class="button" href="game-edit.php?id=<?= $game['id'] ?>">Edit Game</a>
     <a class="delete-button" href="game-delete.php?id=<?= $game['id'] ?>">Delete Game</a>
 </div>

@@ -2,17 +2,13 @@
 
 class CRUD extends PDO {
 
-  public function __construct(){
+public function __construct(){
     parent::__construct(
-      'mysql:
-      host=localhost;
-      dbname=game_catalog;
-      port=3306;
-      charset=utf8',
-      'root',
-      'admin'
+        'mysql:host=mysql8003.site4now.net;dbname=db_acf380_drecpsidequest;port=3306;charset=utf8',
+        'acf380_drecpsidequest',
+        'Hostcu1.'
     );
-  }
+}
 
   public function select(string $table, $field = "id", $order = "ASC"): array {
     $sql = "SELECT * FROM $table ORDER BY $field $order";
@@ -33,6 +29,7 @@ class CRUD extends PDO {
       return false;
     }
   }
+  
 
   public function insert(string $table, array $data): bool|int {
     $fieldName = implode(', ', array_keys($data));
@@ -82,5 +79,19 @@ class CRUD extends PDO {
     }else{
       return false;
     }
+  }
+  public function deleteGamePlatform($gameId, $platformId, $copyType): bool {
+    $sql = "DELETE FROM game_platform 
+            WHERE game_id = :game_id 
+            AND platform_id = :platform_id 
+            AND copy_type = :copy_type";
+
+    $stmt = $this->prepare($sql);
+
+    $stmt->bindValue(':game_id', $gameId);
+    $stmt->bindValue(':platform_id', $platformId);
+    $stmt->bindValue(':copy_type', $copyType);
+
+    return $stmt->execute();
   }
 }
